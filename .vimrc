@@ -10,28 +10,39 @@ set showmatch
 set incsearch
 highlight Search ctermbg=black ctermfg=yellow term=underline
 
+"-------------------------------------
+" colorscheme
+"-------------------------------------
+colorscheme iceberg
+
+"-------------------------------------
 " Leader is ,
+"-------------------------------------
 let mapleader = ","
 
-"show trailing whitespace
+"-------------------------------------
+" show trailing whitespace
+"-------------------------------------
 set lcs=tab:>-,trail:-
 autocmd InsertLeave * set list
 autocmd InsertEnter * set nolist
-set runtimepath^=~/.vim/bundle/ctrlp.vim
-
-cnoremap <expr> %% expand('%:h').'/'
-
+"-------------------------------------
 " Buffer Nav
+"-------------------------------------
+map <Leader>l :Buffers<CR>
 map <Leader>r :%s/
-map <Leader>l :ls <cr>
 map <Leader>g :buf
-map <Leader>` :b# <cr>
-map <Leader>w :bd <cr>
+map <Leader><Leader> :b# <CR>
+map <Leader>w :bd <CR>
 map <Leader>e :e %%
 
-" fold function
-map <Leader>f V%zf
-
-"fuzzy finder
+"-------------------------------------
+" fuzzy finder
+"-------------------------------------
 set rtp+=~/.fzf
-map <Leader>s :FZF<cr>
+map <Leader>f :Files<CR>
+"-------------------------------------
+" C++ source and header navigation
+"-------------------------------------
+map <Leader>c :e %:r.cpp<CR>
+map <Leader>h :e %:r.h<CR>
