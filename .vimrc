@@ -46,3 +46,12 @@ map <Leader>f :Files<CR>
 "-------------------------------------
 map <Leader>c :e %:r.cpp<CR>
 map <Leader>h :e %:r.h<CR>
+"-------------------------------------
+" Search and replace
+"-------------------------------------
+map <Leader>s :%s/
+"-------------------------------------
+" Generic 'run' command to execute
+" ./run.sh in the dir vim was launched
+"-------------------------------------
+map <Leader><SPACE> :!./run.sh<CR>
