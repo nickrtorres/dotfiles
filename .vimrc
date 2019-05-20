@@ -9,17 +9,14 @@ set ignorecase smartcase
 set showmatch
 set incsearch
 highlight Search ctermbg=black ctermfg=yellow term=underline
-
 "-------------------------------------
 " colorscheme
 "-------------------------------------
 colorscheme iceberg
-
 "-------------------------------------
 " Leader is ,
 "-------------------------------------
 let mapleader = ","
-
 "-------------------------------------
 " show trailing whitespace
 "-------------------------------------
@@ -35,7 +32,6 @@ map <Leader>g :buf
 map <Leader><Leader> :b# <CR>
 map <Leader>w :bd <CR>
 map <Leader>e :e %%
-
 "-------------------------------------
 " fuzzy finder
 "-------------------------------------
