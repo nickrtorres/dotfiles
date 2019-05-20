@@ -32,6 +32,7 @@ map <Leader>g :buf
 map <Leader><Leader> :b# <CR>
 map <Leader>w :bd <CR>
 map <Leader>e :e %%
+map <Leader>` <C-w>o
 "-------------------------------------
 " fuzzy finder
 "-------------------------------------
