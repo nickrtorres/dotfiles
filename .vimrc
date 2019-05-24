@@ -36,8 +36,11 @@ map <Leader>` <C-w>o
 "-------------------------------------
 " fuzzy finder
 "-------------------------------------
+" [Buffers] Jump to the existing window if possible
+let g:fzf_buffers_jump = 1
 set rtp+=~/.fzf
-map <Leader>f :Files<CR>
+map <C-p> :Files<CR>
+map <C-g> :Rg 
 "-------------------------------------
 " C++ source and header navigation
 "-------------------------------------
@@ -52,3 +55,23 @@ map <Leader>s :%s/
 " ./run.sh in the dir vim was launched
 "-------------------------------------
 map <Leader><SPACE> :!./run.sh<CR>
+"-------------------------------------
+" S P L I T S
+"-------------------------------------
+set splitright
+set splitbelow
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" G.B.:
+" MULTIPURPOSE TAB KEY
+" Indent if we're at the beginning of a line. Else, do completion.
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+function! InsertTabWrapper()
+    let col = col('.') - 1
+    if !col || getline('.')[col - 1] !~ '\k'
+        return "\<tab>"
+    else
+        return "\<c-p>"
+    endif
+endfunction
+inoremap <expr> <tab> InsertTabWrapper()
+inoremap <s-tab> <c-n>
