@@ -1,7 +1,17 @@
 export CLICOLOR=1
 export LSCOLORS=GxFxBxDxCxegedabagacad
 
-PS1='\u@\h:\W \$ ';
+function status()
+{
+    if [ $? = 0 ]; then
+        printf "\e[32m"
+    else
+        printf "\e[31m"
+    fi
+    echo -n ">"
+    printf "\e[0m"
+}
+PS1='\u@\h:\W \[$(status)\] '
 
 export CPLUS_INCLUDE_PATH=/usr/local/include
 export LIBRARY_PATH=/usr/local/lib
