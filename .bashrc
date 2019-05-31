@@ -3,12 +3,10 @@ export LSCOLORS=GxFxBxDxCxegedabagacad
 
 function status()
 {
-    if [ $? = 0 ]; then
-        printf "\e[32m"
-    else
+    if [ $? -ne 0 ]; then
         printf "\e[31m"
     fi
-    echo -n ">"
+    echo -n "$"
     printf "\e[0m"
 }
 PS1='\u@\h:\W \[$(status)\] '
