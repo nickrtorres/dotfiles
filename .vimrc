@@ -12,6 +12,9 @@ highlight Search ctermbg=black ctermfg=yellow term=underline
 "-------------------------------------
 " colorscheme
 "-------------------------------------
+set cursorline
+set t_Co=256
+hi CursorLine   cterm=NONE ctermbg=235
 colorscheme iceberg
 "-------------------------------------
 " Leader is ,
@@ -40,7 +43,7 @@ map <Leader>` <C-w>o
 let g:fzf_buffers_jump = 1
 set rtp+=~/.fzf
 map <C-p> :Files<CR>
-map <C-g> :Rg 
+map <C-g> :Rg
 "-------------------------------------
 " C++ source and header navigation
 "-------------------------------------
@@ -60,11 +63,12 @@ map <Leader><SPACE> :!./run.sh<CR>
 "-------------------------------------
 set splitright
 set splitbelow
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" G.B.:
+map <Leader>h :hide
+"-------------------------------------
+" GRB.:
 " MULTIPURPOSE TAB KEY
 " Indent if we're at the beginning of a line. Else, do completion.
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"-------------------------------------
 function! InsertTabWrapper()
     let col = col('.') - 1
     if !col || getline('.')[col - 1] !~ '\k'
