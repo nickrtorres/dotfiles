@@ -1,4 +1,4 @@
-syntax on
+syntax off
 set nocompatible
 set tabstop=4
 set expandtab
@@ -12,10 +12,10 @@ highlight Search ctermbg=black ctermfg=yellow term=underline
 "-------------------------------------
 " colorscheme
 "-------------------------------------
-set cursorline
+set nocursorline
 set t_Co=256
 hi CursorLine   cterm=NONE ctermbg=235
-colorscheme iceberg
+"colorscheme iceberg
 "-------------------------------------
 " Leader is ,
 "-------------------------------------
@@ -23,9 +23,9 @@ let mapleader = ","
 "-------------------------------------
 " show trailing whitespace
 "-------------------------------------
-set lcs=tab:>-,trail:-
-autocmd InsertLeave * set list
-autocmd InsertEnter * set nolist
+"set lcs=trail:-
+"autocmd InsertLeave * set list
+"autocmd InsertEnter * set nolist
 "-------------------------------------
 " Buffer Nav
 "-------------------------------------
@@ -79,3 +79,9 @@ function! InsertTabWrapper()
 endfunction
 inoremap <expr> <tab> InsertTabWrapper()
 inoremap <s-tab> <c-n>
+
+"-------------------------------------
+" If writing c, use tabs
+"-------------------------------------
+autocmd FileType c setlocal tabstop=8 shiftwidth=8 softtabstop=8 noexpandtab
+autocmd BufRead,BufNewFile   *.c,*.h set noic cin softtabstop=8 tabstop=8 noexpandtab
