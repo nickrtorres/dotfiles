@@ -9,7 +9,7 @@ function status()
     echo -n "$"
     printf "\e[0m"
 }
-PS1='\u@\h:\W \[$(status)\] '
+PS1='[\u@\h:\W \[$(status)\]] '
 
 export CPLUS_INCLUDE_PATH=/usr/local/include
 export LIBRARY_PATH=/usr/local/lib
