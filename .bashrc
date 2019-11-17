@@ -31,4 +31,9 @@ function scheme()
     docker run -it --rm mit-scheme:10.1.10
 }
 
+function refresh()
+{
+    source ${HOME}/.bashrc
+}
+
 PATH=$PATH:${HOME}/.cargo/bin/
