@@ -23,7 +23,7 @@ function rman()
 
 function rbuild()
 {
-    docker run -it --rm --privileged -v $(pwd):/wd linux-rust PATH=$PATH:$HOME/.cargo/bin /bin/bash
+    docker run -it --rm --privileged -v $(pwd):/wd linux-rust PATH=$PATH:${HOME}/.cargo/bin /bin/bash
 }
 
 function scheme()
@@ -31,4 +31,4 @@ function scheme()
     docker run -it --rm mit-scheme:10.1.10
 }
 
-PATH=$PATH:/Users/nick/.cargo/bin/
+PATH=$PATH:${HOME}/.cargo/bin/
