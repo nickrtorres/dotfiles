@@ -62,7 +62,6 @@ map <Leader><SPACE> :!./run.sh<CR>
 "-------------------------------------
 set splitright
 set splitbelow
-map <Leader>h :hide
 "-------------------------------------
 " GRB.:
 " MULTIPURPOSE TAB KEY
@@ -78,7 +77,6 @@ function! InsertTabWrapper()
 endfunction
 inoremap <expr> <tab> InsertTabWrapper()
 inoremap <s-tab> <c-n>
-
 "-------------------------------------
 " If writing c, use tabs
 "-------------------------------------
