@@ -8,14 +8,13 @@ set autoindent
 set ignorecase smartcase
 set showmatch
 set incsearch
-highlight Search ctermbg=black ctermfg=yellow term=underline
+highlight Search ctermbg=253 ctermfg=NONE term=underline
 "-------------------------------------
-" colorscheme
+" colors
 "-------------------------------------
-set nocursorline
 set t_Co=256
-hi CursorLine   cterm=NONE ctermbg=235
-"colorscheme iceberg
+hi CursorLine   cterm=NONE ctermbg=255
+set cursorline
 "-------------------------------------
 " Leader is ,
 "-------------------------------------
