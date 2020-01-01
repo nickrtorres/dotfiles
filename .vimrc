@@ -8,13 +8,14 @@ set autoindent
 set ignorecase smartcase
 set showmatch
 set incsearch
-highlight Search ctermbg=253 ctermfg=NONE term=underline
+highlight Search ctermbg=black ctermfg=yellow term=underline
 "-------------------------------------
-" colors
+" colorscheme
 "-------------------------------------
+set nocursorline
 set t_Co=256
-hi CursorLine   cterm=NONE ctermbg=255
-set cursorline
+hi CursorLine   cterm=NONE ctermbg=235
+"colorscheme iceberg
 "-------------------------------------
 " Leader is ,
 "-------------------------------------
@@ -79,6 +80,7 @@ function! InsertTabWrapper()
 endfunction
 inoremap <expr> <tab> InsertTabWrapper()
 inoremap <s-tab> <c-n>
+
 "-------------------------------------
 " If writing c, use tabs
 "-------------------------------------

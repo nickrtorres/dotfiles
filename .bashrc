@@ -1,7 +1,15 @@
 export CLICOLOR=1
 export LSCOLORS=GxFxBxDxCxegedabagacad
 
-PS1='[\u@\h:\W $] '
+function status()
+{
+    if [ $? -ne 0 ]; then
+        printf "\e[31m"
+    fi
+    echo -n "$"
+    printf "\e[0m"
+}
+PS1='\u@\h:\W \[$(status)\] '
 
 export CPLUS_INCLUDE_PATH=/usr/local/include
 export LIBRARY_PATH=/usr/local/lib
@@ -23,17 +31,6 @@ function rman()
 
 function rbuild()
 {
-    docker run -it --rm --privileged -v $(pwd):/wd linux-rust PATH=$PATH:${HOME}/.cargo/bin /bin/bash
+    docker run -it --rm --privileged -v $(pwd):/wd linux-rust PATH=$PATH:$HOME/.cargo/bin /bin/bash
 }
-
-function scheme()
-{
-    docker run -it --rm mit-scheme:10.1.10
-}
-
-function refresh()
-{
-    source ${HOME}/.bashrc
-}
-
-PATH=$PATH:${HOME}/.cargo/bin/
+PATH=/Users/nick/.cargo/bin:/usr/local/scala/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Users/nick/Library/Python/2.7/bin:/Users/nick/.scripts:/usr/local/mysql-5.7.21-macos10.13-x86_64/bin:/Users/nick/.cargo/bin:/Library/TeX/texbin:/Applications/Wireshark.app/Contents/MacOS:/usr/local/scala/bin:/Users/nick/.fzf/bin:/Users/nick/.local/bin/
