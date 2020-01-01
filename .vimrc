@@ -52,6 +52,8 @@ map <Leader>h :e %:r.h<CR>
 " Search and replace
 "-------------------------------------
 map <Leader>s :%s/
+map <Leader>S :%s/\<<C-r><C-w>\>/
+map <Leader>vs :%s/
 "-------------------------------------
 " Generic 'run' command to execute
 " ./run.sh in the dir vim was launched
