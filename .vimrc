@@ -84,3 +84,8 @@ inoremap <s-tab> <c-n>
 "-------------------------------------
 autocmd FileType c setlocal tabstop=8 shiftwidth=8 softtabstop=8 noexpandtab
 autocmd BufRead,BufNewFile   *.c,*.h set noic cin softtabstop=8 tabstop=8 noexpandtab
+"-------------------------------------
+" run python files with leader space
+"-------------------------------------
+autocmd FileType python nnoremap <Leader><SPACE> :!python3 %<CR>
+autocmd FileType python nnoremap <Leader><a> :!cp % two.py<CR>
