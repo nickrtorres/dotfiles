@@ -8,7 +8,13 @@ set autoindent
 set ignorecase smartcase
 set showmatch
 set incsearch
+set wildmenu
 highlight Search ctermbg=black ctermfg=yellow term=underline
+set statusline=%f\ %m
+set laststatus=2
+set nowrap
+highlight ColorColumn ctermbg=253
+set colorcolumn=80
 "-------------------------------------
 " colorscheme
 "-------------------------------------
