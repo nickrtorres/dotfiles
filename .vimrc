@@ -39,7 +39,7 @@ map <Leader>l :Buffers<CR>
 map <Leader>r :%s/
 map <Leader>g :buf
 map <Leader><Leader> :b# <CR>
-map <Leader>w :bd <CR>
+map <Leader>w :close <CR>
 map <Leader>e :e %%
 map <Leader>` <C-w>o
 "-------------------------------------
@@ -49,7 +49,7 @@ map <Leader>` <C-w>o
 let g:fzf_buffers_jump = 1
 set rtp+=~/.fzf
 map <C-p> :Files<CR>
-map <C-g> :Rg
+map <C-f> :Rg 
 "-------------------------------------
 " C++ source and header navigation
 "-------------------------------------
