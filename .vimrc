@@ -98,7 +98,8 @@ autocmd BufRead,BufNewFile   *.c,*.h set noic cin softtabstop=8 tabstop=8 noexpa
 filetype plugin on
 let g:rustfmt_autosave = 1
 "-------------------------------------
-" run python files with leader space
+" language specific run <Leader><space> commands
 "-------------------------------------
 autocmd FileType python nnoremap <Leader><SPACE> :!python3 %<CR>
 autocmd FileType python nnoremap <Leader><a> :!cp % two.py<CR>
+autocmd FileType rs nnoremap <Leader><SPACE> :!cargo build<CR>
