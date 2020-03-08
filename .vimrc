@@ -42,6 +42,7 @@ map <Leader><Leader> :b# <CR>
 map <Leader>w :close <CR>
 map <Leader>e :e %%
 map <Leader>` <C-w>o
+map <Leader>o :only<CR>
 "-------------------------------------
 " fuzzy finder
 "-------------------------------------
@@ -72,21 +73,19 @@ map <Leader><SPACE> :!./run.sh<CR>
 set splitright
 set splitbelow
 "-------------------------------------
-" GRB.:
-" MULTIPURPOSE TAB KEY
-" Indent if we're at the beginning of a line. Else, do completion.
+" From vim help "insert.txt"
+" For example, the following will map <Tab> to either actually insert a <Tab> if
+" the current line is currently only whitespace, or start/continue a CTRL-N
+" completion operation:
 "-------------------------------------
-function! InsertTabWrapper()
-    let col = col('.') - 1
-    if !col || getline('.')[col - 1] !~ '\k'
-        return "\<tab>"
-    else
-        return "\<c-p>"
-    endif
+function! CleverTab()
+   if strpart( getline('.'), 0, col('.')-1 ) =~ '^\s*$'
+      return "\<Tab>"
+   else
+      return "\<C-N>"
+   endif
 endfunction
-inoremap <expr> <tab> InsertTabWrapper()
-inoremap <s-tab> <c-n>
-
+inoremap <Tab> <C-R>=CleverTab()<CR>
 "-------------------------------------
 " If writing c, use tabs
 "-------------------------------------
