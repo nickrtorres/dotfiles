@@ -12,7 +12,7 @@ function status()
 PS1='\u@\h:\W \[$(status)\] '
 
 export CPLUS_INCLUDE_PATH=/usr/local/include
-export LESS='-R'
+export LESS='-RFX'
 export LIBRARY_PATH=/usr/local/lib
 export PATH=${PATH}:${HOME}/.cargo/bin
 export PYTHONDONTWRITEBYTECODE=1
