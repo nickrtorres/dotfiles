@@ -96,6 +96,11 @@ autocmd BufRead,BufNewFile   *.c,*.h set noic cin softtabstop=8 tabstop=8 noexpa
 "-------------------------------------
 autocmd BufRead,BufNewFile *.md setlocal spell spelllang=en_us tw=79
 autocmd BufRead,BufNewFile gitcommit setlocal spell spelllang=en_us
+"-------------------------------------
+" If writing Makefile(s), use tabs
+"-------------------------------------
+autocmd BufRead,BufNewFile Makefile set softtabstop=8 tabstop=8 noexpandtab
+"-------------------------------------
 " run cargo fmt after saving
 "-------------------------------------
 filetype plugin on
