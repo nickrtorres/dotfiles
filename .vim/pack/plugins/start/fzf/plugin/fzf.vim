@@ -56,7 +56,6 @@ call s:defs([
 \'command! -bar -bang Commands                           call fzf#vim#commands(<bang>0)',
 \'command! -bar -bang Marks                              call fzf#vim#marks(<bang>0)',
 \'command! -bar -bang Helptags                           call fzf#vim#helptags(<bang>0)',
-\'command! -bar -bang Windows                            call fzf#vim#windows(<bang>0)',
 \'command! -bar -bang Commits                            call fzf#vim#commits(<bang>0)',
 \'command! -bar -bang BCommits                           call fzf#vim#buffer_commits(<bang>0)',
 \'command! -bar -bang Maps                               call fzf#vim#maps("n", <bang>0)',
