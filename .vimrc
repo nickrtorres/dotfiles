@@ -92,6 +92,10 @@ inoremap <Tab> <C-R>=CleverTab()<CR>
 autocmd FileType c setlocal tabstop=8 shiftwidth=8 softtabstop=8 noexpandtab
 autocmd BufRead,BufNewFile   *.c,*.h set noic cin softtabstop=8 tabstop=8 noexpandtab
 "-------------------------------------
+" If writing real words
+"-------------------------------------
+autocmd BufRead,BufNewFile *.md setlocal spell spelllang=en_us tw=79
+autocmd BufRead,BufNewFile gitcommit setlocal spell spelllang=en_us
 " run cargo fmt after saving
 "-------------------------------------
 filetype plugin on
