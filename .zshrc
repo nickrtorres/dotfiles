@@ -8,6 +8,8 @@ export VISUAL=vim
 
 # can't kick old habits
 bindkey -e
+autoload edit-command-line; zle -N edit-command-line
+bindkey -M vicmd v edit-command-line
 
 ls()
 {
