@@ -1,28 +1,42 @@
-PROMPT='%1~ %(?.%F{black}.%F{red})%#%f '
-
-export LESS='-RFX'
-export PATH=${PATH}:${HOME}/.cargo/bin
+export EDITOR="$VISUAL"
+export LESS="-RFX"
+export LIBRARY_PATH=/usr/local/lib
+export PATH="$PATH:$HOME/.cargo/bin"
+export PROMPT='%1~ %(?.%F{black}.%F{red})%#%f '
 export PYTHONDONTWRITEBYTECODE=1
+export VISUAL=vim
+
+# can't kick old habits
+bindkey -e
+
+ls()
+{
+  exa --color=never "$@"
+}
+
+rman()
+{
+  "$@" --color=always --help | less
+}
+
+rbuild()
+{
+  docker run -it --rm --privileged -v $(pwd):/wd linux-rust PATH=$PATH:$HOME/.cargo/bin /bin/bash
+}
+
+fml()
+{
+  rm -i .*.sw*
+}
+
+tmp()
+{
+  (t=$(mktemp -d) && cd "$t" && "$SHELL")
+}
+
+tq()
+{
+  cargo test --quiet
+}
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-export FZF_DEFAULT_COMMAND='fd --type f -E '*.o' -E '*.bin' -E '*.d' -E target -E debug'
-
-function ls()
-{
-    exa --color=never "$@"
-}
-
-function rman()
-{
-    "$@" --color=always --help | less
-}
-
-function rbuild()
-{
-    docker run -it --rm --privileged -v $(pwd):/wd linux-rust PATH=$PATH:$HOME/.cargo/bin /bin/bash
-}
-
-function fml()
-{
-    rm -i .*.sw*
-}
