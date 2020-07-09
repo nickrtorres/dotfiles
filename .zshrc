@@ -10,6 +10,7 @@ export PATH="$PYENV_ROOT/bin:$PATH"
 export PROMPT='%1~ %(?.%F{black}.%F{red})%#%f '
 export PYENV_ROOT="$HOME/.pyenv"
 export PYTHONDONTWRITEBYTECODE=1
+export RUST_BACKTRACE=1
 export VISUAL=vim
 
 # can't kick old habits
