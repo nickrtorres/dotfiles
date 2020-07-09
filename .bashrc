@@ -16,6 +16,7 @@ export LESS='-RFX'
 export LIBRARY_PATH=/usr/local/lib
 export PATH=${PATH}:${HOME}/.cargo/bin
 export PYTHONDONTWRITEBYTECODE=1
+export RUST_BACKTRACE=1
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 export FZF_DEFAULT_COMMAND='fd --type f -E '*.o' -E '*.bin' -E '*.d' -E target -E debug'
@@ -39,3 +40,16 @@ function fml()
 {
     rm -i .*.sw*
 }
+
+function loctest()
+{
+    (set -e; for sha in $(git rev-list origin/master..HEAD); do git checkout $sha; ./runt ; done; git checkout master)
+}
+
+alias tq='cargo test --quiet'
+alias cz='cargo check --quiet'
+export PYENV_ROOT="$HOME/.pyenv"
+export PATH="$PYENV_ROOT/bin:$PATH"
+if command -v pyenv 1>/dev/null 2>&1; then
+  eval "$(pyenv init -)"
+fi
