@@ -1,4 +1,4 @@
-syntax off
+syntax on
 set nocompatible
 set tabstop=4
 set expandtab
@@ -87,11 +87,6 @@ function! CleverTab()
 endfunction
 inoremap <Tab> <C-R>=CleverTab()<CR>
 "-------------------------------------
-" If writing c, use tabs
-"-------------------------------------
-autocmd FileType c setlocal tabstop=8 shiftwidth=8 softtabstop=8 noexpandtab
-autocmd BufRead,BufNewFile   *.c,*.h set noic cin softtabstop=8 tabstop=8 noexpandtab
-"-------------------------------------
 " If writing real words
 "-------------------------------------
 autocmd BufRead,BufNewFile *.md setlocal spell spelllang=en_us tw=79
@@ -111,3 +106,33 @@ let g:rustfmt_autosave = 1
 autocmd FileType python nnoremap <Leader><SPACE> :!python3 %<CR>
 autocmd FileType python nnoremap <Leader><a> :!cp % two.py<CR>
 autocmd FileType rs nnoremap <Leader><SPACE> :!cargo build<CR>
+"-------------------------------------
+" engage RLS
+"-------------------------------------
+if executable('rls')
+    au User lsp_setup call lsp#register_server({
+        \ 'name': 'rls',
+        \ 'cmd': {server_info->['rustup', 'run', 'nightly', 'rls']},
+        \ 'whitelist': ['rust'],
+        \ })
+endif
+let g:LanguageClient_diagnosticsEnable = 0
+let g:LanguageClient_useVirtualText = 0
+map <silent>gd :LspDefinition<CR>zz
+set scl=no
+"-------------------------------------
+" Only highlight comments
+"-------------------------------------
+hi Todo           NONE
+hi Constant       NONE
+hi Special        NONE
+hi Identifier     NONE
+hi Statement      NONE
+hi PreProc        NONE
+hi Type           NONE
+hi Underlined     NONE
+hi Ignore         NONE
+hi Title          NONE
+hi Todo           NONE
+hi SpecialComment term=bold ctermfg=236
+hi Comment        term=bold ctermfg=236
