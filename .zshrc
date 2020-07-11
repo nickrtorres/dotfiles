@@ -1,17 +1,20 @@
-if command -v pyenv 1>/dev/null 2>&1; then
-  eval "$(pyenv init -)"
-fi
-
-export EDITOR="$VISUAL"
+# LVL 0 env vars -- no depedencies
 export LESS="-RFX"
 export LIBRARY_PATH=/usr/local/lib
-export PATH="$PATH:$HOME/.cargo/bin"
-export PATH="$PYENV_ROOT/bin:$PATH"
-export PROMPT='%1~ %(?.%F{black}.%F{red})%#%f '
+export PROMPT='%(1j.* .)%1~ %(?.%F{black}.%F{red})%#%f '
 export PYENV_ROOT="$HOME/.pyenv"
 export PYTHONDONTWRITEBYTECODE=1
 export RUST_BACKTRACE=1
 export VISUAL=vim
+
+# LVL 1 env vars -- 1 dependency
+export EDITOR="$VISUAL"
+export PATH="$PATH:$HOME/.cargo/bin"
+export PATH="$PYENV_ROOT/bin:$PATH"
+
+if command -v pyenv 1>/dev/null 2>&1; then
+  eval "$(pyenv init -)"
+fi
 
 # can't kick old habits
 bindkey -e
