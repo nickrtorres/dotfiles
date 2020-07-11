@@ -1,6 +1,5 @@
 # LVL 0 env vars --- no depedencies
 export LESS="-RFX"
-export LIBRARY_PATH=/usr/local/lib
 export PROMPT='%(1j.* .)%1~ %(?.%F{black}.%F{red})%#%f '
 export PYENV_ROOT="$HOME/.pyenv"
 export PYTHONDONTWRITEBYTECODE=1
