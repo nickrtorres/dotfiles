@@ -1,0 +1,21 @@
+[user]
+    name = Nick Torres
+    email = nickrtorres@icloud.com
+[alias]
+    ci = commit
+    co = checkout
+    d = diff
+    dc = diff --staged
+    inc = add -p
+    mf = merge
+    sn = status --untracked-files=no
+    st = status
+[commit]
+    verbose = 1
+[core]
+    pager = delta
+[delta]
+    light = true
+    syntax-theme = "none"
+[interactive]
+    diffFilter = delta --color-only
