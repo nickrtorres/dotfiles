@@ -2,6 +2,7 @@
     name = Nick Torres
     email = nickrtorres@icloud.com
 [alias]
+    at = add --update
     ci = commit
     co = checkout
     d = diff
