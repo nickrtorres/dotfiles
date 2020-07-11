@@ -58,4 +58,9 @@ loctest()
   (set -e; for sha in $(git rev-list origin/master..HEAD); do git checkout $sha; ./runt; done; git checkout master; )
 }
 
+st()
+{
+  (cd $1 && $SHELL;)
+}
+
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
