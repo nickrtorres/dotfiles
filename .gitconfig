@@ -4,6 +4,7 @@
 [alias]
     at = add --update
     ci = commit
+    can = commit --amend --no-edit
     co = checkout
     d = diff
     dc = diff --staged
