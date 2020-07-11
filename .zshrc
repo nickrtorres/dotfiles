@@ -58,9 +58,22 @@ cz()
   cargo check --quiet
 }
 
-loctest()
+revt()
 {
-  (set -e; for sha in $(git rev-list origin/master..HEAD); do git checkout $sha; ./runt; done; git checkout master; )
+  if [ -z "$TST_RUNNER" ]; then
+    echo "FATAL: TST_RUNNER env variable not set!"
+    return;
+  fi
+
+  (
+    set -e;
+    for sha in $(git rev-list --reverse origin/master..HEAD); do
+      git checkout $sha
+      eval "$TST_RUNNER"
+    done
+
+    git checkout master
+  )
 }
 
 st()
