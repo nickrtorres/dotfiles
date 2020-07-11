@@ -1,4 +1,4 @@
-# LVL 0 env vars -- no depedencies
+# LVL 0 env vars --- no depedencies
 export LESS="-RFX"
 export LIBRARY_PATH=/usr/local/lib
 export PROMPT='%(1j.* .)%1~ %(?.%F{black}.%F{red})%#%f '
@@ -7,9 +7,11 @@ export PYTHONDONTWRITEBYTECODE=1
 export RUST_BACKTRACE=1
 export VISUAL=vim
 
-# LVL 1 env vars -- 1 dependency
+# LVL 1 env vars --- 1 dependency
 export EDITOR="$VISUAL"
 export PATH="$PATH:$HOME/.cargo/bin"
+
+# LVL 2 env vars --- 2 depedencies
 export PATH="$PYENV_ROOT/bin:$PATH"
 
 if command -v pyenv 1>/dev/null 2>&1; then
