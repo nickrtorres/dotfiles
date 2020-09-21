@@ -80,4 +80,35 @@ st()
   (cd $1 && $SHELL;)
 }
 
+o()
+{
+  open "$@"
+}
+
+tex()
+{
+  (
+    set -eu
+
+    CMD="make"
+
+    if [ $# = 1 ]; then
+      if [ "$1" = "clean" ]; then
+        CMD="make clean"
+      elif [ "$1" = "shell" ]; then
+        CMD="/bin/bash"
+      fi
+    fi
+
+
+    docker run --interactive        \
+               --tty                \
+               --rm                 \
+               --volume "$PWD":/wd  \
+               --workdir /wd        \
+               tex:latest           \
+               /bin/bash -c "$CMD"
+  )
+}
+
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
