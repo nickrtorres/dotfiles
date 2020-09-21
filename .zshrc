@@ -92,6 +92,11 @@ tex()
 
     CMD="make"
 
+    if ! test -f "Makefile"; then
+      echo "Error: no Makefile found" >&2
+      return 1
+    fi
+
     if [ $# = 1 ]; then
       if [ "$1" = "clean" ]; then
         CMD="make clean"
