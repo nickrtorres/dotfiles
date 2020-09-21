@@ -91,6 +91,7 @@ inoremap <Tab> <C-R>=CleverTab()<CR>
 "-------------------------------------
 autocmd BufRead,BufNewFile *.md setlocal spell spelllang=en_us tw=79
 autocmd BufRead,BufNewFile gitcommit setlocal spell spelllang=en_us
+autocmd BufRead,BufNewFile *.tex setlocal spell spelllang=en_us tw=79
 "-------------------------------------
 " If writing Makefile(s), use tabs
 "-------------------------------------
