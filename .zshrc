@@ -8,10 +8,6 @@ export VISUAL=vim
 
 # LVL 1 env vars --- 1 dependency
 export EDITOR="$VISUAL"
-export PATH="$PATH:$HOME/.cargo/bin"
-
-# LVL 2 env vars --- 2 depedencies
-export PATH="$PYENV_ROOT/bin:$PATH"
 
 if command -v pyenv 1>/dev/null 2>&1; then
   eval "$(pyenv init -)"
@@ -21,6 +17,15 @@ fi
 bindkey -e
 autoload edit-command-line; zle -N edit-command-line
 bindkey -M vicmd v edit-command-line
+
+appendpath()
+{
+    export PATH="$PATH:$1"
+}
+
+appendpath "$HOME/.cargo/bin"
+appendpath "$PYENV_ROOT/bin"
+appendpath "/usr/local/smlnj/bin"
 
 ls()
 {
@@ -114,6 +119,23 @@ tex()
                tex:latest           \
                /bin/bash -c "$CMD"
   )
+}
+
+gradle()
+{
+  if [ $# = 1 ] && [ "$1" = "shell" ]; then
+    CMD="/bin/bash"
+  else
+    CMD="gradle $*"
+  fi
+
+  docker run --interactive \
+             --rm \
+             --tty \
+             --volume "$PWD":/wd \
+             --workdir /wd \
+             antlr4:latest \
+             /bin/bash -c "$CMD"
 }
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
