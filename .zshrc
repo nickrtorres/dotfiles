@@ -13,10 +13,11 @@ if command -v pyenv 1>/dev/null 2>&1; then
   eval "$(pyenv init -)"
 fi
 
-# can't kick old habits
+# emacs
 bindkey -e
 autoload edit-command-line; zle -N edit-command-line
 bindkey -M vicmd v edit-command-line
+bindkey '^U' backward-kill-line
 
 appendpath()
 {
@@ -26,6 +27,14 @@ appendpath()
 appendpath "$HOME/.cargo/bin"
 appendpath "$PYENV_ROOT/bin"
 appendpath "/usr/local/smlnj/bin"
+
+# copped from https://unix.stackexchange.com/a/250700
+sane-backward-delete-word() {
+    local WORDCHARS=${WORDCHARS/\//}
+    zle backward-delete-word
+}
+zle -N sane-backward-delete-word
+bindkey '^W' sane-backward-delete-word
 
 ls()
 {
