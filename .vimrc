@@ -15,6 +15,8 @@ set laststatus=2
 set nowrap
 highlight ColorColumn ctermbg=253
 set colorcolumn=80
+set encoding=utf-8
+set fileencoding=utf-8
 "-------------------------------------
 " colorscheme
 "-------------------------------------
@@ -66,7 +68,7 @@ map <Leader>vs :%s/
 " Generic 'run' command to execute
 " ./run.sh in the dir vim was launched
 "-------------------------------------
-map <Leader><SPACE> :!./run.sh<CR>
+map <Leader><SPACE> :!./x.sh<CR>
 "-------------------------------------
 " S P L I T S
 "-------------------------------------
@@ -96,6 +98,10 @@ autocmd BufRead,BufNewFile *.tex setlocal spell spelllang=en_us tw=79
 " If writing Makefile(s), use tabs
 "-------------------------------------
 autocmd BufRead,BufNewFile Makefile set softtabstop=8 tabstop=8 noexpandtab
+"-------------------------------------
+" If writing SML use 2 space indents
+"-------------------------------------
+autocmd BufRead,BufNewFile *.sml set sts=2 sw=2 et
 "-------------------------------------
 " run cargo fmt after saving
 "-------------------------------------
