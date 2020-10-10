@@ -147,4 +147,9 @@ gradle()
              /bin/bash -c "$CMD"
 }
 
+ccd()
+{
+  mkdir "$1" && cd "$1"
+}
+
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

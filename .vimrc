@@ -17,13 +17,26 @@ highlight ColorColumn ctermbg=253
 set colorcolumn=80
 set encoding=utf-8
 set fileencoding=utf-8
+set undofile
+set undodir=$HOME/.vim/undo
+set undolevels=1000
+set undoreload=10000
+set hidden
+map <C-c> <ESC>
+"-------------------------------------
+" Add a underline in '=' to the current line
+"-------------------------------------
+map <Leader>= yypv$r=
+"-------------------------------------
+" Add a underline in '-' to the current line
+"-------------------------------------
+map <Leader>- yypv$r-
 "-------------------------------------
 " colorscheme
 "-------------------------------------
 set nocursorline
 set t_Co=256
 hi CursorLine   cterm=NONE ctermbg=235
-"colorscheme iceberg
 "-------------------------------------
 " Leader is ,
 "-------------------------------------
@@ -41,7 +54,7 @@ map <Leader>l :Buffers<CR>
 map <Leader>r :%s/
 map <Leader>g :buf
 map <Leader><Leader> :b# <CR>
-map <Leader>w :close <CR>
+map <Leader>w :bd<CR>
 map <Leader>e :e %%
 map <Leader>` <C-w>o
 map <Leader>o :only<CR>
