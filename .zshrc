@@ -5,13 +5,12 @@ export PYENV_ROOT="$HOME/.pyenv"
 export PYTHONDONTWRITEBYTECODE=1
 export RUST_BACKTRACE=1
 export VISUAL=vim
+export ZOOM_ROOMS='/Users/nick/Desktop/zoom.json'
+# TODO set it to the latest one
+export PYENV_VERSION='3.10-dev'
 
 # LVL 1 env vars --- 1 dependency
 export EDITOR="$VISUAL"
-
-if command -v pyenv 1>/dev/null 2>&1; then
-  eval "$(pyenv init -)"
-fi
 
 # emacs
 bindkey -e
@@ -27,6 +26,11 @@ appendpath()
 appendpath "$HOME/.cargo/bin"
 appendpath "$PYENV_ROOT/bin"
 appendpath "/usr/local/smlnj/bin"
+appendpath "$HOME/bin"
+
+if command -v pyenv 1>/dev/null 2>&1; then
+  eval "$(pyenv init -)"
+fi
 
 # copped from https://unix.stackexchange.com/a/250700
 sane-backward-delete-word() {
@@ -36,43 +40,35 @@ sane-backward-delete-word() {
 zle -N sane-backward-delete-word
 bindkey '^W' sane-backward-delete-word
 
-ls()
-{
+ls() {
   exa --color=never "$@"
 }
 
-rman()
-{
+rman() {
   "$@" --color=always --help | less
 }
 
-rbuild()
-{
+rbuild() {
   docker run -it --rm --privileged -v $(pwd):/wd linux-rust PATH=$PATH:$HOME/.cargo/bin /bin/bash
 }
 
-fml()
-{
+fml() {
   rm -i .*.sw*
 }
 
-tmp()
-{
+tmp() {
   (t=$(mktemp -d) && cd "$t" && "$SHELL")
 }
 
-tq()
-{
+tq() {
   cargo test --quiet
 }
 
-cz()
-{
+cz() {
   cargo check --quiet
 }
 
-revt()
-{
+revt() {
   if [ -z "$TST_RUNNER" ]; then
     echo "FATAL: TST_RUNNER env variable not set!"
     return;
@@ -89,18 +85,15 @@ revt()
   )
 }
 
-st()
-{
+st() {
   (cd $1 && $SHELL;)
 }
 
-o()
-{
+o() {
   open "$@"
 }
 
-tex()
-{
+tex() {
   (
     set -eu
 
@@ -130,8 +123,7 @@ tex()
   )
 }
 
-gradle()
-{
+gradle() {
   if [ $# = 1 ] && [ "$1" = "shell" ]; then
     CMD="/bin/bash"
   else
@@ -147,9 +139,15 @@ gradle()
              /bin/bash -c "$CMD"
 }
 
-ccd()
-{
+ccd() {
   mkdir "$1" && cd "$1"
 }
 
+sch() {
+  cd ~/school/F20
+}
+
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# opam configuration
+test -r /Users/nick/.opam/opam-init/init.zsh && . /Users/nick/.opam/opam-init/init.zsh > /dev/null 2> /dev/null || true

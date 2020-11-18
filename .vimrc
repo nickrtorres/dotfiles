@@ -1,9 +1,9 @@
 syntax on
 set nocompatible
-set tabstop=4
+set tabstop=2
 set expandtab
-set softtabstop=4
-set shiftwidth=4
+set softtabstop=2
+set shiftwidth=2
 set autoindent
 set ignorecase smartcase
 set showmatch
@@ -42,12 +42,6 @@ hi CursorLine   cterm=NONE ctermbg=235
 "-------------------------------------
 let mapleader = ","
 "-------------------------------------
-" show trailing whitespace
-"-------------------------------------
-"set lcs=trail:-
-"autocmd InsertLeave * set list
-"autocmd InsertEnter * set nolist
-"-------------------------------------
 " Buffer Nav
 "-------------------------------------
 map <Leader>l :Buffers<CR>
@@ -82,11 +76,18 @@ map <Leader>vs :%s/
 " ./run.sh in the dir vim was launched
 "-------------------------------------
 map <Leader><SPACE> :!./x.sh<CR>
+map <silent> <C-x>1 :term ++close ++rows=15<CR>
 "-------------------------------------
 " S P L I T S
 "-------------------------------------
 set splitright
 set splitbelow
+" Wait a second?
+map <silent> <C-x>2 :split<CR>
+"-------------------------------------
+" Let's give this a shot
+"-------------------------------------
+set tw=80
 "-------------------------------------
 " From vim help "insert.txt"
 " For example, the following will map <Tab> to either actually insert a <Tab> if
@@ -140,6 +141,21 @@ let g:LanguageClient_diagnosticsEnable = 0
 let g:LanguageClient_useVirtualText = 0
 map <silent>gd :LspDefinition<CR>zz
 set scl=no
+
+"-------------------------------------
+" ocaml fmt
+"-------------------------------------
+let g:neoformat_ocaml_ocamlformat = {
+            \ 'exe': 'ocamlformat',
+            \ 'no_append': 1,
+            \ 'stdin': 1,
+            \ 'args': ['--enable-outside-detected-project', ' --profile=conventional', '--name', '"%:p"', '-']
+            \ }
+let g:neoformat_enabled_ocaml = ['ocamlformat']
+augroup fmt
+  autocmd!
+  autocmd BufWritePre * undojoin | Neoformat
+augroup END
 "-------------------------------------
 " Only highlight comments
 "-------------------------------------
