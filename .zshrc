@@ -40,6 +40,14 @@ sane-backward-delete-word() {
 zle -N sane-backward-delete-word
 bindkey '^W' sane-backward-delete-word
 
+# copped from https://unix.stackexchange.com/a/273863
+HISTFILE="$HOME/.zsh_history"
+HISTSIZE=10000000
+SAVEHIST=10000000
+setopt INC_APPEND_HISTORY
+setopt SHARE_HISTORY 
+setopt HIST_IGNORE_SPACE
+
 ls() {
   exa --color=never "$@"
 }
@@ -145,6 +153,14 @@ ccd() {
 
 sch() {
   cd ~/school/F20
+}
+
+pro() {
+  cd ~/projects
+}
+
+scheme() {
+  docker run --rm -it mit-scheme
 }
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

@@ -8,6 +8,7 @@
     co = checkout
     d = diff
     dc = diff --staged
+    ds = diff --compact-summary
     inc = add -p
     mf = merge
     sn = status --untracked-files=no

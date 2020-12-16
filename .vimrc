@@ -125,6 +125,7 @@ let g:rustfmt_autosave = 1
 " language specific run <Leader><space> commands
 "-------------------------------------
 autocmd FileType python nnoremap <Leader><SPACE> :!python3 %<CR>
+autocmd FileType python nnoremap <C-x>1 :term ++close ++rows=15 ipython<CR>
 autocmd FileType python nnoremap <Leader><a> :!cp % two.py<CR>
 autocmd FileType rs nnoremap <Leader><SPACE> :!cargo build<CR>
 "-------------------------------------
@@ -152,6 +153,7 @@ let g:neoformat_ocaml_ocamlformat = {
             \ 'args': ['--enable-outside-detected-project', ' --profile=conventional', '--name', '"%:p"', '-']
             \ }
 let g:neoformat_enabled_ocaml = ['ocamlformat']
+
 augroup fmt
   autocmd!
   autocmd BufWritePre * undojoin | Neoformat
