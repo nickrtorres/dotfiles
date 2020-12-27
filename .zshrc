@@ -1,13 +1,13 @@
 # LVL 0 env vars --- no depedencies
+export FZF_DEFAULT_COMMAND='fd --type f --color=never'
 export LESS="-RFX"
 export PROMPT='%(1j.* .)%1~ %(?.%F{black}.%F{red})%#%f '
 export PYENV_ROOT="$HOME/.pyenv"
+export PYENV_VERSION='3.10-dev'
 export PYTHONDONTWRITEBYTECODE=1
 export RUST_BACKTRACE=1
 export VISUAL=vim
 export ZOOM_ROOMS='/Users/nick/Desktop/zoom.json'
-# TODO set it to the latest one
-export PYENV_VERSION='3.10-dev'
 
 # LVL 1 env vars --- 1 dependency
 export EDITOR="$VISUAL"
