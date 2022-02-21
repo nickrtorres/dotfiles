@@ -1,0 +1,6 @@
+Base: Basic
+Font: Monaco 11
+Selection color: #A9CBFF
+Cursor: Block
+Cursor color: #FF7E79
+
