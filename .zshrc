@@ -1,4 +1,5 @@
 # LVL 0 env vars --- no depedencies
+export CLANGDIR='/opt/clang/clang-13.0.0'
 export FZF_DEFAULT_COMMAND='fd --type f --color=never'
 export LESS="-RFX"
 export PROMPT='%(1j.* .)%1~ %(?.%F{black}.%F{red})%#%f '
